@@ -1,0 +1,10 @@
+{
+  "password": "{your_password}",
+  "updateTimeInMinutes": 60,
+  "entries": [
+    {
+      "domain": "{your_domain}",
+      "host": "{your_host}"
+    }
+  ]
+}
