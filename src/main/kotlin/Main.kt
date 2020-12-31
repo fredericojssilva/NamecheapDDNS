@@ -6,6 +6,8 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 const val CONFIG_FILE_PATH = "nc_configs.json"
+val myIp = MyIP()
+val namecheapDDNSUpdater = NamecheapDDNSUpdater()
 var IP: String? = null
 val ncConfigs = getConfigs()
 val runExec = ::run
@@ -38,12 +40,12 @@ private fun getConfigs(): NCConfigs? {
 
 private fun run() {
     try {
-        MyIP().getMyIP()?.let {
+        myIp.getMyIP()?.let {
             //only send NC update if IP changes
             if (IP != it) {
                 IP = it
                 println(it)
-                NamecheapDDNSUpdater().updateIp(
+                namecheapDDNSUpdater.updateIp(
                     ip = it,
                     ncConfigs = ncConfigs
                 )

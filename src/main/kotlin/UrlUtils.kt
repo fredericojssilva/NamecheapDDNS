@@ -20,13 +20,13 @@ object UrlUtils {
     fun getResponse(inputStream : InputStream) : String{
         BufferedReader(
             InputStreamReader(inputStream)
-        ).let {
+        ).let { bufferReader ->
             var inputLine: String?
             val content = StringBuffer()
-            while (it.readLine().also { inputLine = it } != null) {
+            while (bufferReader.readLine().also { inputLine = it } != null) {
                 content.append(inputLine)
             }
-            it.close()
+            bufferReader.close()
 
             return content.toString()
         }

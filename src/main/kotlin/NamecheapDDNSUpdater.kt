@@ -21,7 +21,7 @@ class NamecheapDDNSUpdater {
         val con: HttpURLConnection = url.openConnection() as HttpURLConnection
         con.requestMethod = "GET"
         con.responseCode.let {
-            if (con.responseCode == 200) {
+            if (it == 200) {
                 println("SUCCESS")
             } else {
                 System.err.println("Error sendRequest() - $it")
